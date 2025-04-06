@@ -8,20 +8,17 @@ int main(){
         string s,t;
         cin >> s >> t;
         int m = s.length(), n = t.length();
-       
-        if(m > n){
-            for(int i = 0 ; i <m-n;i++){
-                t= '1'+t[i];
-            }
-        }else{
-            for(int i = 0; i<n-m;i++){
-                s= '1'+s[i];
-            }
-        }
-        
         int cnt = 0;
-        for(int i = max(m,n)-1;i>=0;i--){
-            if(s[i]==t[i] && s[i]=='1'){
+        int ind = 0;
+        for(int i = n-1;i>=0;i--){
+            if(t[i]=='1'){
+                break;
+            }
+            ind++;
+        }
+
+        for(int j = m-ind-1;j>=0;j--){
+            if((s[j]=='1')){
                 break;
             }
             cnt++;
